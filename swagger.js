@@ -5,7 +5,7 @@ const doc = {
         title: 'Food recipe API',
         description: 'API for the recipe web application by Oleksandr Avramenko',
     },
-    host: 'cse341-project2-sqhr.onrender.com',
+    host: 'recipe-manager-api.onrender.com',
     schemes: ['https'],
     // host: 'localhost:8080',
     // schemes: ['http'],
