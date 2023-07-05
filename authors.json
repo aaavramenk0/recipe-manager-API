@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Beth",
+        "companyName" : "Budget Bytes",
+        "description" : "I’m a food lover, number cruncher, and meticulous budgeter. I love science and art, and the way they come together when I cook. I love to create, problem solve, and learn new things. Making great food is my passion, my purpose, and my favorite thing to share with others.",
+        "photo" : "https://www.budgetbytes.com/wp-content/uploads/2022/07/Beth-2022-3-268x268.jpg"
+    },
+    {
+        "name": "Marsha",
+        "companyName" : "Budget Bytes",
+        "description" : "Marsha is a Nashville native and the food blogger behind MarshaEileen.com where she shares simple, healthy-ish recipes for busy families and home cooks. As a cancer survivor, Marsha’s goal is to share more recipes using whole foods and real ingredients! She enjoys practicing her food photography, spending time with her family and sharing her bubbly personality and food recipes on her YouTube channel.",
+        "photo" : "https://www.budgetbytes.com/wp-content/uploads/2023/05/avatar_user_75428_1683571081-268x268.jpg"
+    }
+]
