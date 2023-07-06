@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+}
+#top-header{
+    background-color: gray;
+    padding: 5px;
+    
+}
+#top-header a{
+    text-decoration: none;
+    color: black;
+}
+nav ul{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    column-gap: 30px;
+    background-color: blue;
+    color: black;
+    padding: 5px;
+    margin: 0;
+}
+nav ul li{
+    list-style: none;
+}
+
+/* recepie view styles*/
+
+
+.recipeCard ul{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    margin: 0;
+}
+.recipeCard ul li {
+    list-style: none;
+}
