@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 // Create JSON web token function
 const createToken = (_id) => {
-    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
+    return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: '3d' });
 }
 
 module.exports.signupUser = async (req, res) => {

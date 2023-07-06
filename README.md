@@ -33,8 +33,8 @@ Before running the MERN stack web API, ensure you have the following dependencie
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/aaavramenk0/CSE-341-project2
-cd CSE-341-project2
+git clone https://github.com/aaavramenk0/recipe-manager-API
+cd recipe-manager-API
 ```
 
 2. Install the dependencies:
@@ -47,7 +47,7 @@ npm install
 Create a .env file in the root directory and set the following environment variables:
 ```env
 PORT = 8080
-MONGODB_URI = mongodb+srv://oleksandr:GYoqbqOY3alrNSdp@cluster0.a6ww3rn.mongodb.net/
+MONGODB_URI = mongodb+srv://oleksandr:xWZQApd6P4ZWseOL@cluster0.n6lks4r.mongodb.net/
 JWT_SECRET = GKXj2ai@P7@IX2v6Bl9kRiPg13iExrZ7@!Mwb128dX$%X3x!20
 ```
 

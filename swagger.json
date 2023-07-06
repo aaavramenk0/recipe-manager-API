@@ -5,7 +5,7 @@
     "description": "API for the recipe web application by Oleksandr Avramenko",
     "version": "1.0.0"
   },
-  "host": "cse341-project2-sqhr.onrender.com",
+  "host": "recipe-manager-api.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
