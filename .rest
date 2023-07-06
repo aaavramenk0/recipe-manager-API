@@ -1,17 +1,24 @@
 POST http://localhost:8080/recipes HTTP/1.1
 content-type: application/json
+
 {
     "imgUrl" : "https://www.budgetbytes.com/wp-content/uploads/2021/09/Honey-Sriracha-Tofu-close-500x500.jpg",
-    "name" : "Honey Sriracha Tofu",
+    "name" : "Test",
     "rating" : "4.83 from 35 votes",
-    "description" : "This sweet, spicy, and sticky honey sriracha tofu is addictively delicious! Add it to salads, bowl meals, wraps, and more.",
+    "description" : "test",
     "author" : {
         "name" : "Beth",
         "url" : "https://www.budgetbytes.com/author/beth/"
     },
     "cookTime" : "1 hour",
     "ingredients" : ["14 oz. extra firm tofu", "2 Tbsp sriracha", "2 Tbsp honey", "2 tsp soy sauce, divided", "1/4 tsp crushed red pepper", "2 Tbsp cooking oil", "1 Tbsp cornstarch", "2 green onions, sliced"],
-    "instructions" : ["Press the tofu for 30 minutes to remove the excess moisture. You can do this by either using a tofu press, or placing the block of tofu on a rimmed plate or tray, then topping with something flat like a cutting board and placing a heavy object on top (cast iron skillet or pot of water). After pressing for 30 minutes, pour off the extra liquid.", "While the tofu is pressing, make the honey sriracha sauce. In a small bowl, combine the sriracha, honey, 1 teaspoon soy sauce, and the crushed red pepper. Set the sauce aside.", "Cut the pressed tofu into ½-inch cubes. Use a paper towel to lightly pat dry the tofu cubes.", "Add the cooking oil and 1 teaspoon soy sauce to a large bowl. Lightly whisk the soy sauce into the oil. Add the cubed tofu and gently stir until the tofu is coated in oil and soy sauce.", "Sprinkle 1 teaspoon cornstarch over the cubed tofu and gently stir. Repeat two more times, or until 3 teaspoon (1 Tablespoon) cornstarch has been added to the tofu.", "Heat a non-stick skillet over medium. When the skillet is hot, add the prepared tofu. The tofu will fry in the oil that is coating the cubes. Cook the tofu, stirring only occasionally, until it is brown and crispy on all sides (about 10 minutes).", "Pour the honey sriracha sauce over the tofu and continue to stir and cook for 1-2 more minutes, or until the glaze is thick and sticky.", "Top the honey sriracha tofu with sliced green onions and serve."],
+    "instructions" : [
+    "Press the tofu for 30 minutes to remove the excess moisture. You can do this by either using a tofu press, or placing the block of tofu on a rimmed plate or tray, then topping with something flat like a cutting board and placing a heavy object on top (cast iron skillet or pot of water). After pressing for 30 minutes, pour off the extra liquid.", 
+    "While the tofu is pressing, make the honey sriracha sauce. In a small bowl, combine the sriracha, honey, 1 teaspoon soy sauce, and the crushed red pepper. Set the sauce aside.", "Cut the pressed tofu into ½-inch cubes. Use a paper towel to lightly pat dry the tofu cubes.", 
+    "Add the cooking oil and 1 teaspoon soy sauce to a large bowl. Lightly whisk the soy sauce into the oil. Add the cubed tofu and gently stir until the tofu is coated in oil and soy sauce.", "Sprinkle 1 teaspoon cornstarch over the cubed tofu and gently stir. Repeat two more times, or until 3 teaspoon (1 Tablespoon) cornstarch has been added to the tofu.", 
+    "Heat a non-stick skillet over medium. When the skillet is hot, add the prepared tofu. The tofu will fry in the oil that is coating the cubes. Cook the tofu, stirring only occasionally, until it is brown and crispy on all sides (about 10 minutes).", 
+    "Pour the honey sriracha sauce over the tofu and continue to stir and cook for 1-2 more minutes, or until the glaze is thick and sticky.", 
+    "Top the honey sriracha tofu with sliced green onions and serve."],
     "equipment" : ["Chef's knife", "White cutting boards", "Nonstick fry pans"],
     "nutrition" : {
         "protein" : "8g",
@@ -22,6 +29,8 @@ content-type: application/json
         "sodium" : "405mg"
     }
 } 
+
+### Post authors
 
 POST http://localhost:8080/authors HTTP/1.1
 content-type: application/json

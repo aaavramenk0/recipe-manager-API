@@ -22,7 +22,7 @@
     "validator": "^13.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.14.9",
+    "nodemon": "^1.19.4",
     "swagger-autogen": "^2.23.2"
   },
   "repository": {

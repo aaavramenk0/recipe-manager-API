@@ -5,6 +5,7 @@ const Recipe = db.recipe;
 module.exports.createRecipe = (req, res) => {
   try {
     const { name } = req.body;
+    console.log(name);
     if (!name) {
       return res.status(400).send({ message: "Recipe name cannot be empty!" });
     }
