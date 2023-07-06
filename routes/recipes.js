@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+// Import the appropriate controller
 const recipesController = require('../controllers/recipes');
 
-router.get('/', recipesController.getAll);
-router.get('/:_id', recipesController.getRecipe);
-
+// Define the routes
+router.get('/', recipesController.getAllRecipes);
+router.get('/:id', recipesController.getRecipeById);
 router.post('/', recipesController.createRecipe);
-
-router.put('/:_id', recipesController.updateRecipe);
-
-router.delete('/:_id', recipesController.deleteRecipe);
+router.put('/:id', recipesController.updateRecipeById);
+router.delete('/:id', recipesController.deleteRecipeById);
 
 module.exports = router;

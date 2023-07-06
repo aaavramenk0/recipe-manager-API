@@ -38,6 +38,38 @@ module.exports.getAll = (req, res) => {
     }
 }; 
 
+module.exports.updateAuthor = (req, res) => {
+  try {
+    const _id = req.params.id;
+    const name = req.body.name;
+
+    if (!_id) {
+      return res.status(400).send({ message: 'Invalid Author ID entered.' });
+    }
+
+    if (!name) {
+      return res.status(400).send({ message: 'Author name cannot be empty!' });
+    }
+
+    Author.findByIdAndUpdate(_id, { name: name }, { new: true })
+      .then((data) => {
+        if (!data) {
+          return res.status(404).send({ message: 'Author not found.' });
+        }
+        res.status(200).send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'Error occurred while updating the author.'
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+
+
 // DELETE request that delete the author from the database
 module.exports.deleteAuthor = async (req, res) => {
   try {
