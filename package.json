@@ -1,5 +1,5 @@
 {
-  "name": "cse-341-project2",
+  "name": "recipe-manager-api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -33,6 +33,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/aaavramenk0/CSE-341-project2"
+    "url": "https://github.com/aaavramenk0/recipe-manager-API"
   }
 }
