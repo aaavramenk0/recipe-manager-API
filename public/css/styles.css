@@ -9,6 +9,12 @@ body{
 #top-header a{
     text-decoration: none;
     color: black;
+    font-size: 30px;
+}
+nav a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
 }
 nav ul{
     display: flex;
@@ -17,7 +23,7 @@ nav ul{
     column-gap: 30px;
     background-color: blue;
     color: black;
-    padding: 5px;
+    padding: 7px;
     margin: 0;
 }
 nav ul li{
@@ -36,4 +42,35 @@ nav ul li{
 }
 .recipeCard ul li {
     list-style: none;
+}
+.hero-img img{
+    display: block;
+    width: 100%;
+}
+.hero-img{
+    margin-bottom: 30px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    column-gap: 30px;
+    justify-content: center;
+}
+
+.card-1, .card-2, .card-3{
+    width: 30%;
+    height: 400px;
+    background-color: red;
+}
+.container h3{
+    background-color: rgb(93, 93, 206);
+    text-align: center;
+    padding: 5px;
+    margin-top: 0;
+}
+footer{
+    margin-top: 30px;
+    background-color: gray;
+    padding: 10px;
 }
