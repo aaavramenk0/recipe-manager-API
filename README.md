@@ -10,6 +10,10 @@ This is a web API built using the MERN stack (MongoDB, Express.js, React.js, Nod
 4. [Installation](#installation)
 5. [Configuration](#configuration)
 6. [Usage](#usage)
+7. [Google Authentication](#google-authentication)
+8. [Twitter Authentication](#twitter-authentication)
+9. [Contributing](#contributing)
+10. [License](#license)
 
 ## Introduction
 
@@ -19,8 +23,11 @@ The MERN stack web API is designed to handle various HTTP requests and provide d
 
 - RESTful API endpoints for CRUD operations.
 - JSON Web Token (JWT) authentication.
+- Google OAuth 2.0 authentication integration.
+- Twitter authentication integration.
 - Error handling and validation.
 - MongoDB as the database for storing data.
+- .ejs templating for the frontend views.
 
 ## Prerequisites
 
@@ -43,6 +50,24 @@ cd recipe-manager-API
 npm install
 ```
 
+## Configuration
+PORT = 8080
+MONGODB_URI = your_mongodb_connection_string
+JWT_SECRET = your_jwt_secret
+
+GOOGLE_CLIENT_ID = your_google_client_id
+GOOGLE_CLIENT_SECRET = your_google_client_secret
+GOOGLE_CALLBACK_URL = http://localhost:8080/auth/google/callback
+
+consumerKey = your_twitter_consumer_key
+consumerSecret = your_twitter_consumer_secret
+
+token = your_token
+tokenSecret = your_token_secret
+
+SECRET_KEY = your_secret_key
+
+
 ## Usage
 
 1. Create a swagger documentation to see all routes
@@ -55,4 +80,24 @@ npm run swagger
 npm run start
 ```
 
-The server will be running at http://localhost:8080/.
+The server will be running at http://localhost:8080/
+
+## Google Authentication 
+
+To enable Google authentication, follow these steps:    
+    1. Create a Google Cloud Platform project and obtain client credentials.
+    2. Set up the authorized redirect URIs in the Google Cloud Platform project.
+    3. Set the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET environment variables with the obtained client credentials.
+
+## Twitter Authentication
+
+To enable Twitter authentication, follow these steps:
+1. Create a Twitter Developer Account and create a Twitter App.
+2. Obtain the consumer key, consumer secret, and callback URL for your Twitter App.
+3. Set the TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, and TWITTER_CALLBACK_URL environment variables with the obtained values.
+
+## Contributing
+Contributions are welcome! If you find any issues or want to add new features, feel free to open a pull request.
+
+## License
+Please make sure to customize the README file according to your project's specific details, such as the project name, repository URL, API endpoints, and other relevant information. Also, update the installation and configuration steps to match your specific project setup.
