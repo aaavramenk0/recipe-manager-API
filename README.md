@@ -1,4 +1,5 @@
 # MERN Stack Web API
+# Recipe manager API
 
 This is a web API built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It provides the backend functionality for a web application, serving as the server-side component.
 
@@ -42,15 +43,6 @@ cd recipe-manager-API
 npm install
 ```
 
-## Configuration
-
-Create a .env file in the root directory and set the following environment variables:
-```env
-PORT = 8080
-MONGODB_URI = mongodb+srv://oleksandr:xWZQApd6P4ZWseOL@cluster0.n6lks4r.mongodb.net/
-JWT_SECRET = GKXj2ai@P7@IX2v6Bl9kRiPg13iExrZ7@!Mwb128dX$%X3x!20
-```
-
 ## Usage
 
 1. Create a swagger documentation to see all routes
@@ -63,4 +55,4 @@ npm run swagger
 npm run start
 ```
 
-The server will be running at http://localhost:8080/api-docs.
+The server will be running at http://localhost:8080/.
