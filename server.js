@@ -10,6 +10,7 @@ const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
+const User = require('./models/users');
 require('dotenv').config();
 
 const app = express();
@@ -37,10 +38,32 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
     (accessToken, refreshToken, profile, done) => {
-      // You can save the user to your database or perform any other necessary actions
-      // The `profile` object contains the user information from Google
-      // Call `done` to indicate that the authentication was successful
-      done(null, profile);
+      // Check if the user already exists in your database
+      User.findOne({ googleId: profile.id }, (err, existingUser) => {
+        if (err) {
+          return done(err);
+        }
+
+        // If the user already exists, return the user object
+        if (existingUser) {
+          return done(null, existingUser);
+        }
+
+        // If the user doesn't exist, create a new user in your database
+        const newUser = new User({
+          googleId: profile.id,
+          displayName: profile.displayName,
+          email: profile.emails[0].value,
+          // You can save additional user information here
+        });
+
+        newUser.save((err) => {
+          if (err) {
+            return done(err);
+          }
+          return done(null, newUser);
+        });
+      });
     }
   )
 );
@@ -49,15 +72,21 @@ passport.use(
 passport.use(
   new TwitterStrategy(
     {
-      consumerKey: process.env.TWITTER_CONSUMER_KEY,
-      consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-      callbackURL: process.env.TWITTER_CALLBACK_URL,
+      consumerKey: process.env.consumerKey,
+      consumerSecret: process.env.consumerSecret,
+      callbackURL: 'https://localhost:8080/auth/twitter/callback',
+      profileFields: ['id', 'displayName', 'username', 'email', 'photos'],
     },
     (token, tokenSecret, profile, done) => {
-      // You can save the user to your database or perform any other necessary actions
-      // The `profile` object contains the user information from Twitter
-      // Call `done` to indicate that the authentication was successful
-      done(null, profile);
+      const user = {
+        id: profile.id,
+        displayName: profile.displayName,
+        username: profile.username,
+        token: token,
+        tokenSecret: tokenSecret,
+      };
+
+      return done(null, user);
     }
   )
 );
@@ -65,12 +94,14 @@ passport.use(
 // Serialize and deserialize user objects for session support
 passport.serializeUser((user, done) => {
   // Serialize the user object and store it in the session
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
+passport.deserializeUser((id, done) => {
   // Retrieve the user object from the session
-  done(null, user);
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
 });
 
 // View Engine and Templates
@@ -98,6 +129,19 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
+
+// Google OAuth login route
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+// Google OAuth callback route
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Handle successful authentication
+    res.redirect('/'); // Redirect to the desired page
+  }
+);
 
 // Other routes
 app.use('/', require('./routes'));
