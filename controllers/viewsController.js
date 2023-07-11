@@ -1,6 +1,7 @@
 const db = require('../models');
 const utilities = require('../utilities/index.js');
 const Recipe = db.recipe;
+const Author = db.author;
 
 //const viewsController= {};
 
@@ -30,6 +31,35 @@ const buildRecipeView = async function(req, res){
     
     })  
   }
+   
+/********************************
+* build authors view
+* 
+********************************/
+const buildAuthorView = async function(req, res){
+  let card;
+
+  Author.find({})
+  .then((data) => {
+    //console.log(data[0]._id);
+    card = `<ul class="recipeCard">`
+    data.forEach(element => {
+      //console.log("inside "+element._id);
+      card += '<li>'
+      card += `<a href="` + `/views/recipe-detail/`+ element._id +`"><img src= "`+ element.photo +`">` + `</a>`
+      card += `<h2>`+ element.name + `</h2>`
+      card += `</li>`
+     
+      
+    });
+    card += `</ul>`
+    res.status(201).render("authors/author", {
+      title: "Authors",
+      card,
+    })
+  
+  })  
+}
 
 /********************************
 * build recipe detail view
@@ -63,4 +93,8 @@ const buildRecipeDetailView = async function(req, res){
 
 
 
-  module.exports = {buildRecipeView, buildRecipeDetailView};
+  module.exports = {
+    buildRecipeView, 
+    buildRecipeDetailView,
+    buildAuthorView
+  };
