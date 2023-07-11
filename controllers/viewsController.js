@@ -89,6 +89,33 @@ const buildRecipeDetailView = async function(req, res){
   }
 };
 
+/********************************
+* build recipe detail view
+* 
+********************************/
+const buildAuthorDetailView = async function(req, res){
+  try {
+    const _id = req.params.id; 
+    Author.findById(_id)
+      .then((data) => {
+        if (!data) {
+          return res.status(404).send({ message: 'Author not found.' });
+        }
+        let dataGrid = utilities.renderAuthorDetail(data);
+        res.status(201).render("authors/author-detail", {
+          title: data.name,
+          dataGrid
+        })
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'Error occurred while retrieving the recipe.',
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
 
 
@@ -96,5 +123,6 @@ const buildRecipeDetailView = async function(req, res){
   module.exports = {
     buildRecipeView, 
     buildRecipeDetailView,
-    buildAuthorView
+    buildAuthorView,
+    buildAuthorDetailView
   };

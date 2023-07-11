@@ -46,6 +46,33 @@ const renderRecipeDetail = function (data) {
   }
 };
 
+/********************************
+* build author detail view
+* 
+********************************/
+const renderAuthorDetail = function (data) {
+  try {
+    console.log(data);
+  
+
+    let recipeDetail = `<div class="recipe-container">`
+    recipeDetail += `<div class="photoDetails"><img src="`+data.photo+`">`+`</div>`
+    recipeDetail += `<ul class="detail-list">`
+    recipeDetail += `<li>Name: ` +data.name +`</li>`
+    recipeDetail += `<li>Company: `+ data.companyName +`</li><br><br>`
+    recipeDetail += `<li><p> Description: `+ data.description + `</p></li>`
+   
+    recipeDetail += `</ul>`
+    recipeDetail += `</div>`
+
+    return recipeDetail;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+
 function listItems(list){
   let items = `<ul>`
   list.forEach(item => {
@@ -56,4 +83,4 @@ function listItems(list){
   return items;
 }
 
-module.exports = {renderRecipes, renderRecipeDetail}
+module.exports = {renderRecipes, renderRecipeDetail, renderAuthorDetail}

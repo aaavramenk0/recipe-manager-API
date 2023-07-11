@@ -6,7 +6,7 @@ router.get('/', viewsController.buildRecipeView);
 router.get('/authors', viewsController.buildAuthorView);
 
 router.get('/recipe-detail/:id', viewsController.buildRecipeDetailView);
-
+router.get('/author-detail/:id', viewsController.buildAuthorDetailView);
 
 
 

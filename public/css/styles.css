@@ -107,3 +107,14 @@ footer{
     width: 70%;
     display: block;
 }
+.photoDetails {
+    z-index: -10;
+    position: absolute;
+    left: 20%;
+    top: -43%;
+}
+.photoDetails img{
+    width: 70%;
+    display: block;
+}
+
