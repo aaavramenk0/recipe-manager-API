@@ -46,7 +46,7 @@ const buildAuthorView = async function(req, res){
     data.forEach(element => {
       //console.log("inside "+element._id);
       card += '<li>'
-      card += `<a href="` + `/views/recipe-detail/`+ element._id +`"><img src= "`+ element.photo +`">` + `</a>`
+      card += `<a href="` + `/views/author-detail/`+ element._id +`"><img src= "`+ element.photo +`">` + `</a>`
       card += `<h2>`+ element.name + `</h2>`
       card += `</li>`
      
