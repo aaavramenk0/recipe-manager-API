@@ -53,9 +53,11 @@ POST http://localhost:8080/authors HTTP/1.1
 content-type: application/json
 
 {
-  "name": "Katie",
-  "companyName": "Budget Bytes",
-  "description": "Katie is Texas native and the food blogger behind KatieGikon.com where she shares simple, healthy-ish recipes for busy families and home cooks. As a cancer survivor, Katie’s goal is to share more recipes using whole foods and real ingredients! She enjoys practicing her food photography, spending time with her family and sharing her bubbly personality and food recipes on her YouTube channel.",
-  "photo": "https://www.budgetbytes.com/wp-content/uploads/2023/05/avatar_user_75428_1683571081-268x268.jpg"
+    "name" : "Monti",
+    "companyName" : "Budget Bytes",
+    "description" : "Monti Carlo is a Puerto Rican food TV personality, food writer, and special events chef. Catch our Senior Food Editor doing her best not to talk with her mouth full on Good Morning America, The Today Show, Netflix, Food Network, Cooking Channel, and PBS. Her first full-length cookbook, Spanglish, will be published in Spring ’25 by Simon and Schuster’s Simon Element.",
+    "photo" : "https://www.budgetbytes.com/wp-content/uploads/2023/05/Untitled-design-536x536.jpg"
 }
 
+### Delete author
+DELETE http://localhost:8080/authors/64ada90e96d85723ad3a0d1e

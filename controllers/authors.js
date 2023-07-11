@@ -5,13 +5,16 @@ const Author = db.author;
 module.exports.createAuthor = async (req, res) => {
   try {
     const name = req.body.name;
+    const companyName = req.body.companyName;
+    const description = req.body.description;
+    const photo = req.body.photo;
 
     if (!name) {
       res.status(400).send({ message: 'Author name cannot be empty!' });
       return;
     }
 
-    const author = new Author({ name });
+    const author = new Author({ name, companyName, description, photo });
     const savedAuthor = await author.save();
 
     res.status(200).send(savedAuthor);
