@@ -1,4 +1,5 @@
 const db = require('../models');
+const utilities = require('../utilities/index.js');
 const Recipe = db.recipe;
 
 //const viewsController= {};
@@ -42,7 +43,11 @@ const buildRecipeDetailView = async function(req, res){
         if (!data) {
           return res.status(404).send({ message: 'Recipe not found.' });
         }
-        res.send(data);
+        let dataGrid = utilities.renderRecipeDetail(data);
+        res.status(201).render("recipes/recipe-detail", {
+          title: data.name,
+          dataGrid
+        })
       })
       .catch((err) => {
         res.status(500).send({

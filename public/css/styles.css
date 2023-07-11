@@ -84,3 +84,8 @@ footer{
     background-color: gray;
     padding: 10px;
 }
+
+/**recipe detail styles**/
+.detail-list li{
+    list-style: none;
+}
