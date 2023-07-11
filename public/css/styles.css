@@ -31,6 +31,9 @@ nav ul li{
 }
 
 /* recepie view styles*/
+h1{
+    margin-left: 3%;
+}
 #recipeCard-container{
     width: 90%;
     margin: auto;
