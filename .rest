@@ -1,3 +1,14 @@
+###Getall
+GET http://localhost:8080/recipes
+
+
+###Get a recipe with id
+GET http://localhost:8080/recipes/64923154a33e5fba7496249f
+
+###Delete a recipe with id
+DELETE http://localhost:8080/recipes/64923154a33e5fba7496249f
+
+### Post a new recipe
 POST http://localhost:8080/recipes HTTP/1.1
 content-type: application/json
 
@@ -30,8 +41,14 @@ content-type: application/json
     }
 } 
 
-### Post authors
+### Get all authors
+GET http://localhost:8080/authors
 
+###Get a author with id (no route for getting author with id)
+GET http://localhost:8080/authors/64977f52c82fc70934b0679e
+
+
+### Post authors
 POST http://localhost:8080/authors HTTP/1.1
 content-type: application/json
 
@@ -41,3 +58,4 @@ content-type: application/json
   "description": "Katie is Texas native and the food blogger behind KatieGikon.com where she shares simple, healthy-ish recipes for busy families and home cooks. As a cancer survivor, Katie’s goal is to share more recipes using whole foods and real ingredients! She enjoys practicing her food photography, spending time with her family and sharing her bubbly personality and food recipes on her YouTube channel.",
   "photo": "https://www.budgetbytes.com/wp-content/uploads/2023/05/avatar_user_75428_1683571081-268x268.jpg"
 }
+
