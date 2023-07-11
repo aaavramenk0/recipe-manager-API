@@ -5,7 +5,7 @@ GET http://localhost:8080/recipes
 ###Get a recipe with id
 GET http://localhost:8080/recipes/64923154a33e5fba7496249f
 
-###Delete a recipe with id
+###Delete a recipe with id (pls do not use it, for testing creaae dummy)
 DELETE http://localhost:8080/recipes/64923154a33e5fba7496249f
 
 ### Post a new recipe
