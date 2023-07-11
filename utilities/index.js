@@ -32,7 +32,8 @@ const renderRecipeDetail = function (data) {
 
     recipeDetail += `<li><p> Description: `+ data.description + `</p><li>`
     recipeDetail += `<li> Equipment: `+ listItems(data.equipment)  + `<li><br>`
-    recipeDetail += `<li> Ingredients: `+ listItems(data.ingredients)  + `<li>`
+    recipeDetail += `<li> Ingredients: `+ listItems(data.ingredients)  + `<li><br>`
+    recipeDetail += `<li> Equipment: `+ listItems(data.instructions)  + `<li>`
 
     recipeDetail += `</ul>`
     recipeDetail += `</div>`
