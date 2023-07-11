@@ -60,7 +60,7 @@ const renderAuthorDetail = function (data) {
     recipeDetail += `<ul class="detail-list">`
     recipeDetail += `<li>Name: ` +data.name +`</li>`
     recipeDetail += `<li>Company: `+ data.companyName +`</li><br><br>`
-    recipeDetail += `<li><p> Description: `+ data.description + `</p></li>`
+    recipeDetail += `<li><p> Biography: `+ data.description + `</p></li>`
    
     recipeDetail += `</ul>`
     recipeDetail += `</div>`
