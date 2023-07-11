@@ -53,11 +53,11 @@ POST http://localhost:8080/authors HTTP/1.1
 content-type: application/json
 
 {
-    "name" : "Monti",
-    "companyName" : "Budget Bytes",
-    "description" : "Monti Carlo is a Puerto Rican food TV personality, food writer, and special events chef. Catch our Senior Food Editor doing her best not to talk with her mouth full on Good Morning America, The Today Show, Netflix, Food Network, Cooking Channel, and PBS. Her first full-length cookbook, Spanglish, will be published in Spring ’25 by Simon and Schuster’s Simon Element.",
-    "photo" : "https://www.budgetbytes.com/wp-content/uploads/2023/05/Untitled-design-536x536.jpg"
+    "name" : "Aysegul",
+    "companyName" : "Budget Bytes (Contributor)",
+    "description" : "Aysegul Sanford, aka Ice, is the author behind foolproofliving.com, where she shares healthy tried and true recipes that are made without the use of refined sugars. She grew up in Turkey but traveled throughout the world always on a mission to further broaden her knowledge of cooking and flavors. Her favorite toy is her camera and she is almost always in the kitchen taking pictures of delicious food.",
+    "photo" : "https://www.budgetbytes.com/wp-content/uploads/2022/07/Aysegul-Sanford-6258-e1657387559295-160x160.jpg"
 }
 
 ### Delete author
-DELETE http://localhost:8080/authors/64ada90e96d85723ad3a0d1e
+DELETE http://localhost:8080/authors/64adac8897b5b501030ce6cf
