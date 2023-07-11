@@ -2,31 +2,31 @@ POST http://localhost:8080/recipes HTTP/1.1
 content-type: application/json
 
 {
-    "imgUrl" : "https://www.budgetbytes.com/wp-content/uploads/2021/09/Honey-Sriracha-Tofu-close-500x500.jpg",
-    "name" : "Test",
-    "rating" : "4.83 from 35 votes",
-    "description" : "test",
+    "imgUrl" : "https://www.budgetbytes.com/wp-content/uploads/2023/06/BLT-Pasta-Salad-side.jpg",
+    "name" : "BLT PASTA SALAD",
+    "rating" : "4.75 from 4 votes",
+    "description" : "This BLT pasta salad recipe is the perfect summer meal! It's easy to make, full of flavor, and perfect for a potluck or picnic.",
     "author" : {
         "name" : "Beth",
         "url" : "https://www.budgetbytes.com/author/beth/"
     },
-    "cookTime" : "1 hour",
-    "ingredients" : ["14 oz. extra firm tofu", "2 Tbsp sriracha", "2 Tbsp honey", "2 tsp soy sauce, divided", "1/4 tsp crushed red pepper", "2 Tbsp cooking oil", "1 Tbsp cornstarch", "2 green onions, sliced"],
+    "cookTime" : "25minutes mins",
+    "ingredients" : ["8 oz. bacon", "3/4 cup mayonnaise", "1/4 cup ranch dressing", "2 Tbsp lemon juice", "1/2 tsp salt", "1/4 tsp freshly cracked pepper", "12 oz. bowtie pasta", "1 pint grape tomatoes", "1/4 red onion", "2 cups fresh spinach (packed)"],
     "instructions" : [
-    "Press the tofu for 30 minutes to remove the excess moisture. You can do this by either using a tofu press, or placing the block of tofu on a rimmed plate or tray, then topping with something flat like a cutting board and placing a heavy object on top (cast iron skillet or pot of water). After pressing for 30 minutes, pour off the extra liquid.", 
-    "While the tofu is pressing, make the honey sriracha sauce. In a small bowl, combine the sriracha, honey, 1 teaspoon soy sauce, and the crushed red pepper. Set the sauce aside.", "Cut the pressed tofu into ½-inch cubes. Use a paper towel to lightly pat dry the tofu cubes.", 
-    "Add the cooking oil and 1 teaspoon soy sauce to a large bowl. Lightly whisk the soy sauce into the oil. Add the cubed tofu and gently stir until the tofu is coated in oil and soy sauce.", "Sprinkle 1 teaspoon cornstarch over the cubed tofu and gently stir. Repeat two more times, or until 3 teaspoon (1 Tablespoon) cornstarch has been added to the tofu.", 
-    "Heat a non-stick skillet over medium. When the skillet is hot, add the prepared tofu. The tofu will fry in the oil that is coating the cubes. Cook the tofu, stirring only occasionally, until it is brown and crispy on all sides (about 10 minutes).", 
-    "Pour the honey sriracha sauce over the tofu and continue to stir and cook for 1-2 more minutes, or until the glaze is thick and sticky.", 
-    "Top the honey sriracha tofu with sliced green onions and serve."],
+    "Cook the bacon in a large skillet over medium heat until brown and crispy. Transfer the cooked bacon to a paper towel-lined plate to drain and cool. Once cooled, chop or crumble the bacon into smaller pieces.", 
+    "While the bacon is cooking, prepare the dressing. Stir together the mayonnaise, ranch dressing, lemon juice, salt, and pepper. Set the dressing aside.", 
+    "Bring a large pot of salted water to a boil for the pasta. Once boiling, add the pasta and cook until tender (7-8 minutes). Drain the pasta in a colander, rinse it briefly with cool water to cool it down, then let it drain very well.", 
+    "While the pasta is cooking and draining, prepare the vegetables. Slice the grape tomatoes in half, finely dice the red onion, and roughly chop the spinach.", 
+    "Once the pasta is cooled and drained, add it to a large bowl along with the spinach, tomatoes, onions, and dressing. Stir everything together until evenly combined and coated in dressing. Let the pasta sit for 10-15 minutes for the flavors to blend, then stir once more and serve." 
+    ],
     "equipment" : ["Chef's knife", "White cutting boards", "Nonstick fry pans"],
     "nutrition" : {
-        "protein" : "8g",
-        "fiber" : "1g",
-        "calories" : "161kcal",
-        "fat" : "9g",
-        "carbohydrates" : "13g",
-        "sodium" : "405mg"
+        "protein" : "10g",
+        "fiber" : "2g",
+        "calories" : "466kcal",
+        "fat" : "31g",
+        "carbohydrates" : "36g",
+        "sodium" : "546mg"
     }
 } 
 
