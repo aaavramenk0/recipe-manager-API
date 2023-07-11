@@ -27,13 +27,15 @@ const renderRecipeDetail = function (data) {
   
 
     let recipeDetail = `<div class="recipe-container">`
+    recipeDetail += `<div class="imageDetails"><img src="`+data.imgUrl+`">`+`</div>`
     recipeDetail += `<ul class="detail-list">`
     recipeDetail += `<li>Recipe Author: `+`<a href="`+ data.author.url +`"target="_blank">` +data.author.name +`</a></li>`
 
-    recipeDetail += `<li><p> Description: `+ data.description + `</p><li>`
-    recipeDetail += `<li> Equipment: `+ listItems(data.equipment)  + `<li><br>`
-    recipeDetail += `<li> Ingredients: `+ listItems(data.ingredients)  + `<li><br>`
-    recipeDetail += `<li> Equipment: `+ listItems(data.instructions)  + `<li>`
+    recipeDetail += `<li><p> Description: `+ data.description + `</p></li>`
+    recipeDetail += `<li> Equipment: `+ listItems(data.equipment)  + `</li><br>`
+    recipeDetail += `<li>Ingredients: `+ listItems(data.ingredients) +`</li><br>` 
+  
+    recipeDetail += `<li> Instructions: `+ listItems(data.instructions)  + `</li>`
 
     recipeDetail += `</ul>`
     recipeDetail += `</div>`

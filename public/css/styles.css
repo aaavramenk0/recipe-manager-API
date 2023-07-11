@@ -89,3 +89,17 @@ footer{
 .detail-list li{
     list-style: none;
 }
+
+.recipe-container{
+    position: relative;
+}
+.imageDetails {
+    z-index: -10;
+    position: absolute;
+    left: 40%;
+    top: 13%;
+}
+.imageDetails img{
+    width: 70%;
+    display: block;
+}
