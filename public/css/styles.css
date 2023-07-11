@@ -31,17 +31,27 @@ nav ul li{
 }
 
 /* recepie view styles*/
-
-
-.recipeCard ul{
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    margin: 0;
+#recipeCard-container{
+    width: 90%;
+    margin: auto;
 }
-.recipeCard ul li {
+.recipeCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    padding: 0;
+    margin: auto;
+}
+.recipeCard img{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+
+.recipeCard li {
     list-style: none;
+    border: 2px solid black;
 }
 .hero-img img{
     display: block;

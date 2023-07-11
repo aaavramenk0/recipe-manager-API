@@ -11,8 +11,7 @@ viewsController.buildRecipeView = async function(req, res){
     Recipe.find({})
     .then((data) => {
       //console.log(data);
-      card = `<div class="recipeCard">`
-      card+= `<ul>`
+      card = `<ul class="recipeCard">`
       data.forEach(element => {
         card += '<li>'
         card += `<img src= "`+ element.imgUrl +`">`
@@ -22,7 +21,6 @@ viewsController.buildRecipeView = async function(req, res){
         
       });
       card += `</ul>`
-      card += `</div>`
       res.status(201).render("recipes/recipe", {
         title: "Recipes",
         card,
