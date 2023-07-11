@@ -23,9 +23,8 @@ const renderRecipes = (req, res) => {
 // Render recipe detail by id
 const renderRecipeDetail = function (data) {
   try {
-    console.log(data);
+    //console.log(data);
   
-
     let recipeDetail = `<div class="recipe-container">`
     recipeDetail += `<div class="imageDetails"><img src="`+data.imgUrl+`">`+`</div>`
     recipeDetail += `<ul class="detail-list">`
@@ -52,8 +51,7 @@ const renderRecipeDetail = function (data) {
 ********************************/
 const renderAuthorDetail = function (data) {
   try {
-    console.log(data);
-  
+    
 
     let recipeDetail = `<div class="recipe-container">`
     recipeDetail += `<div class="photoDetails"><img src="`+data.photo+`">`+`</div>`
