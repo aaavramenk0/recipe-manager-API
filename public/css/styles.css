@@ -31,17 +31,31 @@ nav ul li{
 }
 
 /* recepie view styles*/
-
-
-.recipeCard ul{
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    margin: 0;
+h1{
+    margin-left: 3%;
 }
-.recipeCard ul li {
+#recipeCard-container{
+    width: 90%;
+    margin: auto;
+}
+.recipeCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 0;
+    margin: auto;
+}
+.recipeCard img{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+
+.recipeCard li {
     list-style: none;
+    border: 2px solid black;
 }
 .hero-img img{
     display: block;
@@ -74,3 +88,36 @@ footer{
     background-color: gray;
     padding: 10px;
 }
+
+/**recipe detail styles**/
+.detail-list li{
+    list-style: none;
+}
+
+.recipe-container{
+    position: relative;
+}
+.detail-list li{
+    padding-bottom: 7px;
+}
+.imageDetails {
+    z-index: -10;
+    position: absolute;
+    left: 40%;
+    top: 13%;
+}
+.imageDetails img{
+    width: 70%;
+    display: block;
+}
+.photoDetails {
+    z-index: -10;
+    position: absolute;
+    left: 20%;
+    top: -43%;
+}
+.photoDetails img{
+    width: 70%;
+    display: block;
+}
+

@@ -20,4 +20,65 @@ const renderRecipes = (req, res) => {
   }
 };
 
-module.exports = {renderRecipes}
+// Render recipe detail by id
+const renderRecipeDetail = function (data) {
+  try {
+    //console.log(data);
+  
+    let recipeDetail = `<div class="recipe-container">`
+    recipeDetail += `<div class="imageDetails"><img src="`+data.imgUrl+`">`+`</div>`
+    recipeDetail += `<ul class="detail-list">`
+    recipeDetail += `<li>Recipe Author: `+`<a href="`+ data.author.url +`"target="_blank">` +data.author.name +`</a></li>`
+
+    recipeDetail += `<li><p> Description: `+ data.description + `</p></li>`
+    recipeDetail += `<li> Equipment: `+ listItems(data.equipment)  + `</li><br>`
+    recipeDetail += `<li>Ingredients: `+ listItems(data.ingredients) +`</li><br>` 
+  
+    recipeDetail += `<li> Instructions: `+ listItems(data.instructions)  + `</li>`
+
+    recipeDetail += `</ul>`
+    recipeDetail += `</div>`
+
+    return recipeDetail;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+/********************************
+* build author detail view
+* 
+********************************/
+const renderAuthorDetail = function (data) {
+  try {
+    
+
+    let recipeDetail = `<div class="recipe-container">`
+    recipeDetail += `<div class="photoDetails"><img src="`+data.photo+`">`+`</div>`
+    recipeDetail += `<ul class="detail-list">`
+    recipeDetail += `<li>Name: ` +data.name +`</li>`
+    recipeDetail += `<li>Company: `+ data.companyName +`</li><br><br>`
+    recipeDetail += `<li><p> Biography: `+ data.description + `</p></li>`
+   
+    recipeDetail += `</ul>`
+    recipeDetail += `</div>`
+
+    return recipeDetail;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+
+function listItems(list){
+  let items = `<ul>`
+  list.forEach(item => {
+    items += `<li>`+ item + `</li>`
+   
+  }); 
+  items += `</ul>`
+  return items;
+}
+
+module.exports = {renderRecipes, renderRecipeDetail, renderAuthorDetail}

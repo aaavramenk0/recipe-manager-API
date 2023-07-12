@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dbConfig = require('./config/db.config');
 const staticController = require('./controllers/staticController');
-const viewsController = require('./controllers/viewsController');
+const viewsRoutes = require('./routes/viewsRoutes');
 const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -118,7 +118,7 @@ app.use(staticRoutes);
 
 // Index route
 app.get('/', staticController.buildHome);
-app.get('/views', viewsController.buildRecipeView);
+app.use('/views', viewsRoutes);
 
 // Body-parser and URL encoding middleware
 app.use(bodyParser.json());

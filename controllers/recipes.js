@@ -46,7 +46,7 @@ module.exports.getAllRecipes = (req, res) => {
 // GET request that retrieves a recipe from the database by its ID
 module.exports.getRecipeById = (req, res) => {
   try {
-    const _id = req.params.id;
+    const _id = req.params.id; 
     Recipe.findById(_id)
       .then((data) => {
         if (!data) {
