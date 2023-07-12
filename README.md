@@ -51,6 +51,7 @@ npm install
 ```
 
 ## Configuration
+```env
 PORT = 8080
 MONGODB_URI = your_mongodb_connection_string
 JWT_SECRET = your_jwt_secret
@@ -66,6 +67,7 @@ token = your_token
 tokenSecret = your_token_secret
 
 SECRET_KEY = your_secret_key
+```
 
 
 ## Usage
@@ -85,9 +87,9 @@ The server will be running at http://localhost:8080/
 ## Google Authentication 
 
 To enable Google authentication, follow these steps:    
-    1. Create a Google Cloud Platform project and obtain client credentials.
-    2. Set up the authorized redirect URIs in the Google Cloud Platform project.
-    3. Set the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET environment variables with the obtained client credentials.
+1. Create a Google Cloud Platform project and obtain client credentials.
+2. Set up the authorized redirect URIs in the Google Cloud Platform project.
+3. Set the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET environment variables with the obtained client credentials.
 
 ## Twitter Authentication
 
