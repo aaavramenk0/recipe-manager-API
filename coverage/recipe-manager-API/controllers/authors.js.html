@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.66% </span>
+                <span class="strong">31.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/60</span>
+                <span class='fraction'>19/60</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">3.84% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>1/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.66% </span>
+                <span class="strong">31.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/60</span>
+                <span class='fraction'>19/60</span>
             </div>
         
             
@@ -190,21 +190,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,9 +214,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -311,22 +311,22 @@
 const Author = db.author;
 &nbsp;
 // POST request that creates a new author
-module.exports.createAuthor = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const name = <span class="cstat-no" title="statement not covered" >req.body.name;</span>
-    const companyName = <span class="cstat-no" title="statement not covered" >req.body.companyName;</span>
-    const description = <span class="cstat-no" title="statement not covered" >req.body.description;</span>
-    const photo = <span class="cstat-no" title="statement not covered" >req.body.photo;</span>
+module.exports.createAuthor = async (req, res) =&gt; {
+  try {
+    const name = req.body.name;
+    const companyName = req.body.companyName;
+    const description = req.body.description;
+    const photo = req.body.photo;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!name) {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!name) {
 <span class="cstat-no" title="statement not covered" >      res.status(400).send({ message: 'Author name cannot be empty!' });</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
 &nbsp;
-    const author = <span class="cstat-no" title="statement not covered" >new Author({ name, companyName, description, photo });</span>
-    const savedAuthor = <span class="cstat-no" title="statement not covered" >await author.save();</span>
+    const author = new Author({ name, companyName, description, photo });
+    const savedAuthor = await author.save();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    res.status(200).send(savedAuthor);</span>
+    res.status(200).send(savedAuthor);
   } catch (err) {
 <span class="cstat-no" title="statement not covered" >    res.status(500).send({</span>
       message: err.message || 'Error occurred while creating a new author.',
@@ -335,10 +335,10 @@ module.exports.createAuthor = <span class="fstat-no" title="function not covered
 };
 &nbsp;
 // GET request that retrieves all authors
-module.exports.getAllAuthors = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const authors = <span class="cstat-no" title="statement not covered" >await Author.find({});</span>
-<span class="cstat-no" title="statement not covered" >    res.status(200).send(authors);</span>
+module.exports.getAllAuthors = async (req, res) =&gt; {
+  try {
+    const authors = await Author.find({});
+    res.status(200).send(authors);
   } catch (err) {
 <span class="cstat-no" title="statement not covered" >    res.status(500).send({</span>
       message: err.message || 'Error occurred while retrieving authors.',
@@ -436,7 +436,7 @@ module.exports.deleteAuthor = <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-13T00:19:09.615Z
+                at 2023-07-13T19:12:27.224Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
