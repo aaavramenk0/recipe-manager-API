@@ -108,7 +108,8 @@ describe('POST requests', () => {
             .expect(200);
         
         // get all recipes from the DB
-        const recipes = await Recipe.find({})
+        const recipes = await Recipe.find({});
+        console.log(recipes);
 
         //let's check that the last item added was indeed newItem object
         //it should contain the name "BLT PASTA SALAD"
@@ -148,13 +149,32 @@ describe('DELETE requests', () => {
         await api
             .delete(`/recipes/${recipeToDelete._id}`)
             .expect(200);
+       
         // get all items from database again
         const recipesAfterDelete = await Recipe.find({});
         // check if the number of current items is one less than before
         expect(recipesAfterDelete).toHaveLength(recipesAtStart.length - 1);
         // get an array of all the names inside the DB
-        const recipesNames = recipesAfterDelete.map(i => i.toJSON().name)
+        const recipesNames = recipesAfterDelete.map(i => i.toJSON().name);
         // expect the name of the deleted recipe to not be there
         expect(recipesNames).not.toContain(recipeToDelete.name);
+    });
+    test('DELETE author', async () => {
+        // get author and parse the one you want to delete to JSON
+        const authorsAtStart = await Author.find({});
+        const authorToDelete = authorsAtStart[0].toJSON();
+        // delete an item by id
+        await api
+            .delete(`/authors/${authorToDelete._id}`)
+            .expect(200);
+        // get all items from database again
+        const authorsAfterDelete = await Author.find({});
+        // check if the number of current items is one less than before
+        expect(authorsAfterDelete).toHaveLength(authorsAtStart.length - 1);
+        // get an array of all the names inside the DB
+        const authorsNames = authorsAfterDelete.map(i => i.toJSON().name);
+        // expect the name of the deleted author to not be there
+        expect(authorsNames).not.toContain(authorToDelete.name);
     })
 });
+
