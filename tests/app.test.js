@@ -5,6 +5,7 @@ const dbConfig = require('../config/db.config');
 const db = require('../models');
 const Recipe = db.recipe;
 const Author = db.author;
+const initialData = require('./initialData');
 
 const api = supertest(app);
 
@@ -22,6 +23,10 @@ beforeEach(async () => {
             console.log('Cannot connect to the database!', err);
             process.exit();
         });
+    await Recipe.deleteMany({});
+    await Recipe.insertMany(initialData.initialRecipes);
+    await Author.deleteMany({});
+    await Author.insertMany(initialData.initialAuthors);
 });
 
 /* Close the server after each test */ 
@@ -178,3 +183,21 @@ describe('DELETE requests', () => {
     })
 });
 
+
+// Test the /user/signup route
+describe('Test for /user/signup route', () => {
+// Test for empty fields
+test('should return error message about empty fields', async () => {
+    const userWithEmptyFields = {
+        "email": "",
+        "password": ""
+    }
+
+    const userResponse = await api
+        .post('/user/signup')
+        .send(userWithEmptyFields)
+        .expect(400);
+    
+    expect(userResponse.body.error).toBe("All fields must be filled!");
+})
+})
