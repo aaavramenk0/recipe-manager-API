@@ -102,13 +102,13 @@ To enable Twitter authentication, follow these steps:
 ## Testing
 The project utilizes the Jest framework for writing and executing tests, providing a robust and efficient testing experience.
 
-- Running the Tests
+- Running the Tests /br
 To run the test suite, follow these steps:
 1. Ensure that all dependencies are installed by running ```bash npm install ```.
 2. Execute the command ```bash npm test ``` in the terminal.
 3. Jest will run the test suite and display the results in the console.
 
-- Test Coverage
+- Test Coverage /br
 The project aims to achieve comprehensive test coverage to ensure that critical components and functionalities are thoroughly tested. Jest provides built-in code coverage reports, allowing you to assess the extent of test coverage.
 
 To generate a code coverage report, run the following command:
