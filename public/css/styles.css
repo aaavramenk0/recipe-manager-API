@@ -49,6 +49,7 @@ h1{
 .recipeCard img{
     display: block;
     width: 100%;
+    height: 350px;
     margin: auto;
 }
 
@@ -103,7 +104,7 @@ footer{
 .imageDetails {
     z-index: -10;
     position: absolute;
-    left: 40%;
+    left: 45%;
     top: 13%;
 }
 .imageDetails img{
@@ -120,4 +121,18 @@ footer{
     width: 70%;
     display: block;
 }
-
+@media (max-width: 600px) {
+    .recipeCard{
+        grid-template-columns: 1fr;
+ 
+    }
+    .imageDetails,  .photoDetails {
+      
+        left: 60%;
+        
+    }
+    .photoDetails {
+        top: -18%;
+    }
+  
+}
