@@ -5,7 +5,15 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "swagger": "node ./swagger.js"
+    "swagger": "node ./swagger.js",
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ],
+    "preset": "@shelf/jest-mongodb"
   },
   "author": "Oleksandr Avramenko",
   "license": "ISC",
@@ -19,16 +27,24 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.6.0",
+    "mongodb-memory-server": "^8.13.0",
     "mongoose": "^7.3.1",
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",
-    "passport-twitter": "^1.0.4",
+    "passport-twitter": "^0.1.5",
+    "supertest": "^6.3.3",
     "swagger": "^0.0.1",
     "swagger-ui-express": "^4.6.3",
     "validator": "^13.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.14.9",
+    "@shelf/jest-mongodb": "^4.1.7",
+    "jest": "^29.6.1",
+    "supertest": "^6.3.3",
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.1",
     "swagger-autogen": "^2.23.2"
   },
   "repository": {

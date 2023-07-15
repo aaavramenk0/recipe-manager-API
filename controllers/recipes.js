@@ -12,7 +12,6 @@ module.exports.createRecipe = (req, res) => {
     const recipe = new Recipe(req.body);
     recipe.save()
       .then((data) => {
-        console.log(data);
         res.status(200).send(data);
       })
       .catch((err) => {
