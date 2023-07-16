@@ -3,8 +3,8 @@ const expressLayouts = require('express-ejs-layouts');
 const staticRoutes = require('./routes/static');
 const bodyParser = require('body-parser');
 
-const { graphqlHTTP } = require("express-graphql")
-const { buildSchema } = require("graphql")
+const {graphqlHTTP} = require('express-graphql');
+const schema = require('./schema/schema');
 
 const staticController = require('./controllers/staticController');
 const viewsRoutes = require('./routes/viewsRoutes');
@@ -121,13 +121,11 @@ app.use(staticRoutes);
 // Index route
 app.get('/', staticController.buildHome);
 app.use('/views', viewsRoutes);
-
 // graphql
 app.use(
   "/graphql",
   graphqlHTTP({
     schema: schema,
-    rootValue: root,
     graphiql: true,
   })
 )
