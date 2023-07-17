@@ -38,6 +38,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
+      scope: ['profile', 'email'],
     },
     (accessToken, refreshToken, profile, done) => {
       // Check if the user already exists in your database
