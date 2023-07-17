@@ -13,10 +13,22 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const User = require('./models/users');
+const { auth } = require('express-openid-connect');
 require('dotenv').config();
 
 const app = express();
 
+// Oauth code
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL,
+};
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
 
 // Session middleware
 app.use(
@@ -105,7 +117,7 @@ passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
     done(err, user);
   });
-});
+}); 
 
 // View Engine and Templates
 app.set('view engine', 'ejs');
@@ -115,6 +127,7 @@ app.set('layout', './layouts/layout');
 /* ***********************
  * Routes
  *************************/
+
 
 // Static Routes
 app.use(staticRoutes);
@@ -132,19 +145,20 @@ app.use(
 )
 
 // Body-parser and URL encoding middleware
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
 
-// CORS headers
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
+app
+  .use(bodyParser.json())
+  .use(express.urlencoded({ extended: true }))
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  })
+  .use('/', require('./routes'));
 
 // Google OAuth login route
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-// Google OAuth callback route
+//  Google OAuth callback route
 app.get(
   '/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
@@ -154,7 +168,5 @@ app.get(
   }
 );
 
-// Other routes
-app.use('/', require('./routes'));
 
 module.exports = app;
