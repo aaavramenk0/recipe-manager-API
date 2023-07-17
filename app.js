@@ -154,6 +154,18 @@ app.get(
   }
 );
 
+// Twitter OAuth login route
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
+// Twitter OAuth callback route
+app.get(
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Handle successful authentication
+    res.redirect('/'); // Redirect to the desired page
+  }
+);
 /*app.get('/auth/google', (req, res, next) => {
   passport.authenticate('google', { scope: ['profile', 'email'] }, (err, user, info) => {
     // Log the authentication request details
