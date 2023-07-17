@@ -89,7 +89,7 @@ passport.use(
     {
       consumerKey: process.env.consumerKey,
       consumerSecret: process.env.consumerSecret,
-      callbackURL: 'https://localhost:8080/auth/twitter/callback',
+      callbackURL: 'https://recipe-manager-api.onrender.com/auth/twitter/callback',
       profileFields: ['id', 'displayName', 'username', 'email', 'photos'],
     },
     (token, tokenSecret, profile, done) => {
@@ -168,5 +168,30 @@ app.get(
   }
 );
 
+// Twitter OAuth login route
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
+// Twitter OAuth callback route
+app.get(
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Handle successful authentication
+    res.redirect('/'); // Redirect to the desired page
+  }
+);
+/*app.get('/auth/google', (req, res, next) => {
+  passport.authenticate('google', { scope: ['profile', 'email'] }, (err, user, info) => {
+    // Log the authentication request details
+    console.log('Authentication request:', info);
+
+    // Call the default Passport.js handler
+    next();
+  })(req, res, next);
+});*/
+// Other routes
+app.use('/', require('./routes'));
+app.use('/user', require('./routes/signup')) 
+app.use('/user', require('./routes/login'))
 
 module.exports = app;
