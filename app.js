@@ -154,6 +154,15 @@ app.get(
   }
 );
 
+/*app.get('/auth/google', (req, res, next) => {
+  passport.authenticate('google', { scope: ['profile', 'email'] }, (err, user, info) => {
+    // Log the authentication request details
+    console.log('Authentication request:', info);
+
+    // Call the default Passport.js handler
+    next();
+  })(req, res, next);
+});*/
 // Other routes
 app.use('/', require('./routes'));
 
