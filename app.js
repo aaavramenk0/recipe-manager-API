@@ -77,7 +77,7 @@ passport.use(
     {
       consumerKey: process.env.consumerKey,
       consumerSecret: process.env.consumerSecret,
-      callbackURL: 'https://localhost:8080/auth/twitter/callback',
+      callbackURL: 'https://recipe-manager-api.onrender.com/auth/twitter/callback',
       profileFields: ['id', 'displayName', 'username', 'email', 'photos'],
     },
     (token, tokenSecret, profile, done) => {
