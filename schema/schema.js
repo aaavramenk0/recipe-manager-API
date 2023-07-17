@@ -1,6 +1,7 @@
 const graphql = require('graphql');
+const db = require('../models');
+const Recipe = db.recipe;
 
-const Recipe = require('../models/recipes');
 
 const { 
     GraphQLObjectType, GraphQLString, 
@@ -21,12 +22,27 @@ const author_type = new GraphQLObjectType({
       name: { type: GraphQLString },
       url: { type: GraphQLString },
     }),
-  })
+  });
+
+  const nutrition_type = new GraphQLObjectType({
+    name: 'nutrition',
+    fields: () => ({
+      protein: { type: GraphQLString },
+      fiber: { type: GraphQLString },
+      calories: { type: GraphQLString },
+      fat: { type: GraphQLString },
+      carbohydrates: { type: GraphQLString },
+      sodium: { type: GraphQLString },
+    }),
+  });
+
+ 
+  
 
 const RecipeType = new GraphQLObjectType({
     name: 'Recipe',
     //We are wrapping fields in the function as we dont want to execute this ultil 
-    //everything is inilized. For example below code will throw error AuthorType not 
+    //everything is inilized. For example below code will throw error RecipeType not 
     //found if not wrapped in a function
     fields: () => ({
         id: { type: GraphQLID  },
@@ -37,13 +53,10 @@ const RecipeType = new GraphQLObjectType({
         author: {type: author_type }, 
             
         cookTime: { type: GraphQLString },
-        ingredients: { type: GraphQLString },
-        instructions: { type: GraphQLString },
-        equipment: { type: GraphQLString },
-        nutrition: { type: GraphQLString },
-        
-        
-       
+        ingredients: { type: new GraphQLList(GraphQLString) },
+        instructions: { type: new GraphQLList(GraphQLString) },
+        equipment: { type: new GraphQLList(GraphQLString) },
+        nutrition: { type: nutrition_type },
     
     })
 });
@@ -79,46 +92,57 @@ module.exports = new GraphQLSchema({
 
 /****************************************************************************
 Queries
-
-mutation{
-  addAuthor(name: "Manto", age: 55)
-  {
-    name
-    age
-  }
-  
-}
-
-mutation{
-  addBook(name: "Science", pages: 350, authorID: "64a26c05580455256550ac49")
-  {
-    name
-    pages
-  }
-}
-
-for all books query
 {
-	books{
+	recipes{
+        id
+        name
+        author{
+                name
+                url
+        }
+	}
+}
+//another query example
+
+{
+	recipes{
     id
     name
-    pages
+    rating
+   
     author{
-      id
       name
-      age
+      url
     }
-  
+    ingredients
+    instructions
+    equipment
+    nutrition{
+      sodium
+    }
 	}
 }
 
-for all authors
-{
-  authors{
-    id
-    name
-    age
-  }
-}
+***                  ***
+*** For Single Query *** 
+***                  ***
+        {
+	        recipe (id: "64b06de5756c8eee1e1a4cd7"){
+                                id
+                                name
+                                rating
+   
+                                author{
+                                        name
+                                        url
+                                }
+                                ingredients
+                                instructions
+                                equipment
 
+                                nutrition{
+                                            sodium
+                                }
+	            }
+        }
 ******************************************************************************/
