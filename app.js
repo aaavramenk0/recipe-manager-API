@@ -165,5 +165,7 @@ app.get(
 });*/
 // Other routes
 app.use('/', require('./routes'));
+app.use('/user', require('./routes/signup')) 
+app.use('/user', require('./routes/login'))
 
 module.exports = app;
