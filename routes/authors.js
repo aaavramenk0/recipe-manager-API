@@ -4,8 +4,9 @@ const { auth, requiresAuth } = require('express-openid-connect');
 
 const authorController = require('../controllers/authors');
 
+
 router.get('/',requiresAuth(),authorController.getAllAuthors);
-router.get('/:id', authorController.getAuthorById);
+router.get('/:id', requiresAuth(), authorController.getAuthorById);
 router.post('/', authorController.createAuthor);
 router.put('/:id', authorController.updateAuthor);
 router.delete('/:id', authorController.deleteAuthor);

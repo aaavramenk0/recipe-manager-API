@@ -13,7 +13,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const User = require('./models/users');
-const { auth } = require('express-openid-connect');
+const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 
 const app = express();
@@ -133,6 +133,7 @@ app.set('layout', './layouts/layout');
 app.use(staticRoutes);
 
 // Index route
+app.get('*', requiresAuth())
 app.get('/', staticController.buildHome);
 app.use('/views', viewsRoutes);
 // graphql
