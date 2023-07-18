@@ -139,7 +139,42 @@ const Mutation = new GraphQLObjectType({
                 });
                 return recipe.save();
             }
+        },
+        deleteRecipe: {
+          type: RecipeType,
+          args: {
+              //GraphQLNonNull make these field required
+              id: { type: new GraphQLNonNull(GraphQLID) },
+          },
+          resolve(parent, args) {
+            console.log(args.id);
+
+              return Recipe.findByIdAndDelete(args.id);
+          }
+      },
+      updateRecipe: {
+        type: RecipeType,
+        args: {
+          id: { type: GraphQLID  },
+          name: { type: GraphQLString },
+          imgUrl: { type: GraphQLString },
+          rating: { type: GraphQLString },
+          description: { type: GraphQLString },
+          cookTime: { type: GraphQLString },
+          author: { type: author_input_type },
+          equipment: { type: new GraphQLList(GraphQLString) },
+          instructions: { type: new GraphQLList(GraphQLString) },
+          ingredients: { type: new GraphQLList(GraphQLString) },
+          nutrition: { type: nutrition_input_type },
+            
+        },
+        resolve(parent, args) {
+          console.log(args.id);
+
+          return Recipe.findByIdAndUpdate(args.id, args, {new: true});
         }
+    }
+
 
     }
 });
@@ -262,4 +297,23 @@ mutation{
   }
   
 }
+mutation{
+  deleteRecipe(id: "64b52ff19fb07d8ffc989a02"){
+    id
+    name
+  }
+  
+}
+
+//update recipe
+mutation{
+  updateRecipe(id:"64b25e3e47eb8764e876d53a",
+  name: "Blt Pasta Salad"
+  
+  ){
+    name
+    
+  }
+}
+
 ******************************************************************************/
